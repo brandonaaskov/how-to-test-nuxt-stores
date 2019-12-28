@@ -1,0 +1,23 @@
+{
+  "name": "how-to-test-nuxt-stores",
+  "version": "1.0.0",
+  "description": "Testing stores in nuxt is really important, and it is not well documented, so here is a working example.",
+  "author": "Brandon Aaskov",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "test": "jest"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "vue-jest": "^4.0.0-0"
+  }
+}
