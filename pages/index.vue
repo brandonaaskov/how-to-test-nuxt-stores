@@ -1,72 +1,35 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        how-to-test-nuxt-stores
-      </h1>
-      <h2 class="subtitle">
-        Testing stores in nuxt is really important, and it&#39;s not well documented, so here&#39;s a working example.
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <section>
+    <h2 class="title">Disney Movies</h2>
+    <ul class="movies">
+      <li v-for="movie in disneyMovies" :key="movie.title">
+        {{movie.title}}
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-    Logo
+  computed: {
+    ...mapGetters({
+      byStudio: 'movies/byStudio'
+    }),
+    disneyMovies () {
+      return this.byStudio('Disney')
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
   font-weight: 300;
   font-size: 42px;
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>

@@ -1,41 +1,41 @@
-import _ from "lodash";
-import Vuex from "vuex";
-import { createLocalVue } from "@vue/test-utils";
+import _ from "lodash"
+import Vuex from "vuex"
+import { createLocalVue } from "@vue/test-utils"
 
 describe("store/movies", () => {
-  const localVue = createLocalVue();
-  localVue.use(Vuex);
-  let NuxtStore;
-  let store;
+  const localVue = createLocalVue()
+  localVue.use(Vuex)
+  let NuxtStore
+  let store
 
   beforeAll(async () => {
     // note the store will mutate across tests
-    const storePath = `${process.env.buildDir}/store.js`;
-    NuxtStore = await import(storePath);
-  });
+    const storePath = `${process.env.buildDir}/store.js`
+    NuxtStore = await import(storePath)
+  })
 
   beforeEach(async () => {
-    store = await NuxtStore.createStore();
-  });
+    store = await NuxtStore.createStore()
+  })
 
   describe("disney", () => {
-    let disney;
+    let disney
 
     beforeEach(() => {
       disney = store.getters['movies/disney']
     })
 
     test("getter is a function", () => {
-      expect(_.isArray(disney)).toBe(true);
-    });
+      expect(_.isArray(disney)).toBe(true)
+    })
 
     test("should be 6 movies total", () => {
-      expect(disney.length).toBe(6);
-    });
-  });
+      expect(disney.length).toBe(6)
+    })
+  })
 
   describe('byStudio', () => {
-    let byStudio;
+    let byStudio
 
     beforeEach(() => {
       byStudio = store.getters['movies/byStudio']
@@ -58,4 +58,4 @@ describe("store/movies", () => {
       expect(byStudio('beijing enlight').length).toBe(1)
     })
   })
-});
+})

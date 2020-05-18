@@ -12,6 +12,6 @@ module.exports = {
     ".*\\.(vue)$": "vue-jest"
   },
   collectCoverage: true,
-  collectCoverageFrom: ["<rootDir>/**/*.(vue|js)"],
+  collectCoverageFrom: ["<rootDir>/store/**/*.(vue|js)"],
   forceExit: !!process.env.CI // almost every CI platform sets this by default
 };
