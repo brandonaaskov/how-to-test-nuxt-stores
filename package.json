@@ -12,12 +12,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "nuxt": "^2.13.0"
+    "nuxt": "^2.13.3"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.3",
-    "babel-jest": "^26.0.1",
-    "jest": "^26.0.1",
+    "babel-jest": "^26.1.0",
+    "jest": "^26.1.0",
     "vue-jest": "^4.0.0-beta.3"
   }
 }
